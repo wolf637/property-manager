@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+
+from .models import Room
 
 # Create your views here.
 def list(request):
-    return render(request, "rooms/list.html")
+    rooms = Room.objects
+    return render(request, "rooms/list.html", context={'rooms': rooms})
 
 
 
 def create(request):
-    return render(request, "Here is the list of rooms")
+    return render(request, "rooms/create.html")
 
 
 def details(request, room_id):
-    return render(request, "Here is the list of rooms")
+
+    room = get_object_or_404(Room, pk=room_id)
+    return render(request, "rooms/details.html", context={'room': room})

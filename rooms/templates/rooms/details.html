@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">{{ room.name }}</h1>
+            <p>{{ room.description }}</p>
+            <div>Occupancy: {{ room.occupancy }}</div>
+            <img src="{{room.image.url}}" alt="{{ room.name }}">
+        </div>
+      </div>
+
+{% endblock %}
