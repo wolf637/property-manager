@@ -6,17 +6,25 @@
         <div class="container">
           <h1 class="display-3">Add new room</h1>
             <form action="" method="POST">
-                <label for="room_name">Room Name</label>
-                <input id="room_name" type="text" placeholder="E.g. Single Room">
-                <label for="room_occupancy">Max occupancy</label>
-                <select name="Occupancy" id="room_occupancy">
-                    <option value="1">1 guest</option>
-                    <option value="2">2 guests</option>
-                    <option value="3">3 guests</option>
-                    <option value="4">4 guests</option>
-                </select>
-                <label for="room_img">Upload room photo</label>
-                <input id="room_img" type="file" name="room_img" accept="image/*">
+                {% csrf_token %}
+                <div>
+                    <label for="room_name">Room Name</label>
+                    <input id="room_name" name="room_name" type="text" placeholder="E.g. 101" value="">
+                </div>
+                <div>
+                    <label for="room_desc">Room Description</label>
+                    <textarea id="room_desc" name="room_desc" placeholder="Room Description"></textarea>
+                </div>
+                <div>
+                    <label for="room_type">Room Type</label>
+                    <select name="room_type" id="room_type">
+                        {% for type in room_types.all %}
+                        <option value="{{ type.id }}">{{type}}</option>
+                        {% endfor %}
+                    </select>
+                    <a class="btn btn-danger" href="{% url 'create_room_type'%}">Create New Room Type</a>
+                </div>
+
                 <input class="btn btn-primary" type="submit" value="Create new room">
             </form>
         </div>

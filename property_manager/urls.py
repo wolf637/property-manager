@@ -23,5 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('rooms/', include('rooms.urls')),
-    path('reservations/', include('reservations.urls'))
+    path('reservations/', include('reservations.urls')),
+    path('properties/', include('properties.urls')),
+    path('room_types/', include('room_types.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,7 +9,9 @@
 
 
             <div>
-                <div>{{ room.name }}</div>
+                <div>
+                    <a href="{% url 'room_details' room.id %}">{{ room.name }}</a>
+                </div>
                 <img src="{{ room.image.url }}" alt="{{ room.name }}">
             </div>
 

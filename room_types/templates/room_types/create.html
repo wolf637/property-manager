@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Create New Room Type</h1>
+            <form action="" method="POST">
+                <div>
+                    <label for="room_type_name">Room Type Name</label>
+                    <input id="room_type_name" type="text" placeholder="E.g. Single Room">
+                </div>
+                <div>
+                    <label for="bed_type">Bed Type</label>
+                    <select name="bed_type" id="bed_type">
+                        {% for bed in beds.all %}
+                        <option value="{{ bed.id }}">{{bed}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="num_beds">Number of Beds</label>
+                    <select name="num_beds" id="num_beds">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+
+                </div>
+                <div>
+                    <label for="max_occupancy">Maximum Occupancy</label>
+                    <input id="max_occupancy" type="text" value="">
+                </div>
+                <div>
+                    <label for="room_img">Upload room photo</label>
+                    <input id="room_img" type="file" name="room_img" accept="image/*">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Create new room">
+            </form>
+        </div>
+      </div>
+
+{% endblock %}
