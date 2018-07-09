@@ -12,15 +12,14 @@
                 <div>
                     <a href="{% url 'room_details' room.id %}">{{ room.name }}</a>
                 </div>
-                <img src="{{ room.image.url }}" alt="{{ room.name }}">
+                <a href="{% url 'room_details' room.id %}"><img src="{{ room.image.url }}" alt="{{ room.name }}"></a>
             </div>
 
             {% endfor %}
+            <div>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'create_room' %}" role="button">Add room</a></p>
+            </div>
 
-
-
-
-          <p><a class="btn btn-primary btn-lg" href="{% url 'create_room' %}" role="button">Add room</a></p>
         </div>
       </div>
 
