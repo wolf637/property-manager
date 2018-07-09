@@ -5,12 +5,24 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">Please Login</h1>
+            {% if error %}
+<div>{{ error }}</div>
+{% endif %}
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
 
+                <div>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input id="password" name="password" type="password">
+                </div>
 
+                <input class="btn btn-primary" type="submit" value="Login">
+            </form>
 
-
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
         </div>
       </div>
 

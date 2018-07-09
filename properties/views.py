@@ -29,10 +29,22 @@ def signup(request):
         return render(request, 'properties/signup.html', context={})
 
 def login(request):
+
+    if request.method == 'POST':
+        user = auth.authenticate(username=request.POST['email'], password=request.POST['password'])
+        if user:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'properties/login.html', context={'error': 'Username or password is incorrect'})
+
     return render(request, 'properties/login.html', context={})
 
 def logout(request):
-    return render(request, 'properties/signup.html', context={})
+
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('home')
 
 def details(request, property_id):
 
