@@ -8,6 +8,7 @@ from properties.models import Property
 
 class Reservation(models.Model):
 
+
     arrival = models.DateField()
     departure = models.DateField()
     guest = models.ForeignKey(Guest, on_delete=models.DO_NOTHING)
