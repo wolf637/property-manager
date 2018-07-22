@@ -5,7 +5,7 @@ from .models import Room
 from room_types.models import RoomType
 from properties.models import Property
 
-@login_required(login_url='login.html')
+@login_required(login_url='login')
 def list(request):
 
     # TODO In some cases when I an logged in as an admin I don't have property or rooms associated so it causes properties.models.DoesNotExist: Property matching query does not exist.
@@ -16,7 +16,7 @@ def list(request):
     return render(request, "rooms/list.html", context={'rooms': rooms})
 
 
-@login_required(login_url='login.html')
+@login_required(login_url='login')
 def create(request):
 
     if request.method == 'POST':
@@ -36,7 +36,7 @@ def create(request):
         return render(request, "rooms/create.html", context={'room_types': room_types})
 
 
-@login_required(login_url='login.html')
+@login_required(login_url='login')
 def details(request, room_id):
     property = Property.objects.get(user=request.user)
     room = get_object_or_404(Room, pk=room_id, property=property)
