@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from properties.models import Property
+from rooms.models import Room
 from .models import Reservation
 
 # Create your views here.
@@ -11,7 +12,9 @@ def list(request):
     property = Property.objects.get(user=request.user)
     reservations = {}
     if property:
-        reservations = Reservation.objects.filter(property=property)
+        rooms = Room.objects.filter(property=property)
+        if rooms:
+            reservations = Reservation.objects.filter(property=property)
     return render(request, "reservations/list.html", context={'reservations': reservations})
 
 
