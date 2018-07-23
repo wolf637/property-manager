@@ -9,8 +9,9 @@ from .models import Reservation
 def list(request):
 
     property = Property.objects.get(user=request.user)
-    reservations = Reservation.objects.filter(property=property)
-
+    reservations = {}
+    if property:
+        reservations = Reservation.objects.filter(property=property)
     return render(request, "reservations/list.html", context={'reservations': reservations})
 
 
