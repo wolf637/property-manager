@@ -7,7 +7,7 @@ from properties.models import Property
 class Room(models.Model):
 
     name = models.TextField(max_length=80)
-    property = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
+    property = models.ForeignKey(Property, on_delete=models.DO_NOTHING, blank=True)
     description = models.TextField(max_length=1000, default="")
     room_type = models.ForeignKey(RoomType, on_delete=models.DO_NOTHING)
     empty = models.BooleanField(default=True)

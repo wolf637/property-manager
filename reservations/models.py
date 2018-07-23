@@ -14,4 +14,4 @@ class Reservation(models.Model):
     guest = models.ForeignKey(Guest, on_delete=models.DO_NOTHING)
     room_types = models.ForeignKey(RoomType, on_delete=models.DO_NOTHING)
     rooms = models.ForeignKey(Room, on_delete=models.DO_NOTHING)
-    property = models.ForeignKey(Property, on_delete=models.DO_NOTHING)
+    property = models.ForeignKey(Property, on_delete=models.DO_NOTHING, blank=True)
