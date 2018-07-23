@@ -13,4 +13,3 @@ class Reservation(models.Model):
     departure = models.DateField()
     guest = models.ForeignKey(Guest, on_delete=models.DO_NOTHING)
     rooms = models.ForeignKey(Room, on_delete=models.DO_NOTHING, blank=True)
-    property = models.ForeignKey(Property, on_delete=models.DO_NOTHING, blank=True)

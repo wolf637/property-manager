@@ -10,11 +10,7 @@ from .models import Reservation
 def list(request):
 
     property = Property.objects.get(user=request.user)
-    reservations = {}
-    if property:
-        rooms = Room.objects.filter(property=property)
-        if rooms:
-            reservations = Reservation.objects.filter(property=property)
+    reservations = Reservation.objects.filter(rooms__property=property)
     return render(request, "reservations/list.html", context={'reservations': reservations})
 
 

@@ -12,9 +12,7 @@ def list(request):
 
 
     property = Property.objects.get(user=request.user)
-    rooms = {}
-    if property:
-        rooms = Room.objects.filter(property=property)
+    rooms = Room.objects.filter(property=property)
     return render(request, "rooms/list.html", context={'rooms': rooms})
 
 
