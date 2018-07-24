@@ -1,4 +1,6 @@
 # BASE_URL = "http://127.0.0.1:8000/"
+BASE_URL = "http://http://138.68.253.156/"
+
 
 
 HOME = {
