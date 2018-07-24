@@ -1,5 +1,5 @@
 from tests.UI.page_objects import UI_map
-from tests.UI.page_objects.UI_map import BASE_URL
+
 from .page_objects.homepage import HomePage
 from .base import TestClassBase
 import time
@@ -22,12 +22,18 @@ class TestLogin(TestClassBase):
         # Log in with credentials of existing user
 
         # Make sure user logged in
-        self.driver.get(BASE_URL)
+
         homepage = HomePage(self.driver)
         loginpage = homepage.login()
-        time.sleep(10)
         loginpage.login()
 
+    def test_logout(self):
+
+        pass
+
+    def test_invalid_credentials(self):
+
+        pass
 
 
 
