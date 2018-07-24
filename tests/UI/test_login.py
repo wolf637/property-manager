@@ -24,6 +24,7 @@ class TestLogin(TestClassBase):
         # Make sure user logged in
 
         homepage = HomePage(self.driver)
+        print("Home url: {}".format(self.driver.current_url))
         loginpage = homepage.login()
         loginpage.login()
 
