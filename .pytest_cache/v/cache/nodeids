@@ -1,6 +1,0 @@
-[
-  "tests/UI/test_login.py::TestLogin::()::test_signup",
-  "tests/UI/test_login.py::TestLogin::()::test_login",
-  "tests/UI/test_login.py::TestLogin::()::test_logout",
-  "tests/UI/test_login.py::TestLogin::()::test_invalid_credentials"
-]
