@@ -16,7 +16,7 @@ class TestClassBase(object):
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        # cls.driver = webdriver.Chrome('/Users/avolkov/Documents/05_Development/PMA/property_manager/tests/UI/drivers/mac/chromedriver')
+        # cls.driver = webdriver.Chrome('/Users/avolkov/Documents/05_Development/PMA/property_manager/tests/UI/drivers/mac/chromedriver', chrome_options=chrome_options)
         cls.driver = webdriver.Chrome('/home/pmadmin/property-manager-project/property-manager/tests/UI/drivers/linux/chromedriver', chrome_options=chrome_options)
         cls.driver.get(BASE_URL)
 

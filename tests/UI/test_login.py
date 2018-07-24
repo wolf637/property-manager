@@ -22,9 +22,9 @@ class TestLogin(TestClassBase):
         # Log in with credentials of existing user
 
         # Make sure user logged in
-
-        homepage = HomePage(self.driver)
         print("Home url: {}".format(self.driver.current_url))
+        homepage = HomePage(self.driver)
+
         loginpage = homepage.login()
         loginpage.login()
 

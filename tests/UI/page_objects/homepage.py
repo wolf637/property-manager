@@ -12,6 +12,7 @@ class HomePage(BasePage):
     def _verify_page(self):
         """Verifies that we landed on the expected page"""
         try:
+            print("Base URL: {}".format(BASE_URL))
             self.wait_for_element_visibility('css', UI_map.HOME['welcome_h1'])
 
         except:
