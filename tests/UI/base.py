@@ -9,7 +9,8 @@ class TestClassBase(object):
     def setup_class(cls):
         "Runs once per class"
         # TODO Change path on server
-        cls.driver = webdriver.Chrome('/Users/avolkov/Documents/05_Development/PMA/property_manager/tests/UI/drivers/chromedriver')
+        # cls.driver = webdriver.Chrome('/Users/avolkov/Documents/05_Development/PMA/property_manager/tests/UI/drivers/chromedriver')
+        cls.driver = webdriver.Chrome('/home/pmadmin/property-manager-project/property-manager/tests/UI/drivers/chromedriver')
         cls.driver.get(BASE_URL)
 
         # TODO common steps
