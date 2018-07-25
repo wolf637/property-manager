@@ -1,10 +1,48 @@
 {% extends 'base.html' %}
 
+{% block extrahead %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker-arrival" ).datepicker();
+  } );
+  $( function() {
+    $( "#datepicker-departure" ).datepicker();
+  } );
+  </script>
+{% endblock %}
+
 {% block content %}
+
 
       <div class="jumbotron">
           <h1 class="display-3">Create new reservation</h1>
       </div>
-
+<form action="" method="POST">
+    <section>
+        <div class="row">
+            <div class="date-picker">Arrival: <input type="text" id="datepicker-arrival"></div>
+            <div class="date-picker">Departure: <input type="text" id="datepicker-departure"></div>
+        </div>
+    </section>
+    <section>
+        <h4>Guest Information</h4>
+        <div class="row">
+            <label for="first_name">First Name</label>
+             <input id="first_name" type="text" placeholder="Ex. John">
+            <label for="last_name">Last Name</label>
+            <input id="last_name" type="text" placeholder="Ex. Doe">
+        </div>
+        <div class="row">
+            <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="john.doe@mail.com">
+            <label for="phone">Phone:</label>
+            <input id="phone" type="text" placeholder="+1(234)555-6789">
+        </div>
+    </section>
+    <input class="btn btn-primary" type="submit" value="Create reservation">
+</form>
 
 {% endblock %}
