@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from tests.UI.page_objects.UI_map import BASE_URL
+import os
 
 WAIT_TIME = 10
 
@@ -11,13 +12,14 @@ class TestClassBase(object):
         "Runs once per class"
         # TODO Change path on server
 
+        DRIVER_LOCATION = os.path.join(os.getcwd(), 'tests', 'UI', 'drivers', 'linux', 'chromedriver')
+        # DRIVER_LOCATION = os.path.join(os.getcwd(), 'tests', 'UI', 'drivers', 'mac', 'chromedriver')
 
         chrome_options = Options()
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        # cls.driver = webdriver.Chrome('/Users/avolkov/Documents/05_Development/PMA/property_manager/tests/UI/drivers/mac/chromedriver', chrome_options=chrome_options)
-        cls.driver = webdriver.Chrome('/home/pmadmin/property-manager-project/property-manager/tests/UI/drivers/linux/chromedriver', chrome_options=chrome_options)
+        cls.driver = webdriver.Chrome(DRIVER_LOCATION, chrome_options=chrome_options)
         cls.driver.get(BASE_URL)
 
         # TODO common steps
