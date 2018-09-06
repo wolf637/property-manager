@@ -17,10 +17,10 @@ class RoomType(models.Model):
     name = models.TextField(max_length=80)
     image = models.ImageField(upload_to='images/')
     bed = models.ForeignKey(Bed, on_delete=models.DO_NOTHING)
-    num_beds = models.IntegerField()
+    num_beds = models.IntegerField(default=1)
+    rate = models.IntegerField(default=50)
 
     def occupancy(self):
-        print("Bed occupancy: {}".format(self.bed.name))
         return self.bed.occupancy * self.num_beds
 
     def __str__(self):
