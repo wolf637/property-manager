@@ -23,26 +23,26 @@
 <form action="" method="POST">
     <section>
         <div class="row">
-            <div class="date-picker">Arrival: <input type="text" id="datepicker-arrival"></div>
-            <div class="date-picker">Departure: <input type="text" id="datepicker-departure"></div>
+            <div class="date-picker">Arrival: <input class="form-control" type="text" id="datepicker-arrival"></div>
+            <div class="date-picker">Departure: <input class="form-control" type="text" id="datepicker-departure"></div>
         </div>
     </section>
     <section>
-        <h4>Guest Information</h4>
+        <h4 >Guest Information</h4>
         <div class="row">
             <label for="first_name">First Name</label>
-             <input id="first_name" type="text" placeholder="Ex. John">
+             <input class="form-control" id="first_name" type="text" placeholder="Ex. John">
             <label for="last_name">Last Name</label>
-            <input id="last_name" type="text" placeholder="Ex. Doe">
+            <input class="form-control" id="last_name" type="text" placeholder="Ex. Doe">
         </div>
         <div class="row">
             <label for="email">Email:</label>
-            <input id="email" type="email" placeholder="john.doe@mail.com">
+            <input class="form-control" id="email" type="email" placeholder="john.doe@mail.com">
             <label for="phone">Phone:</label>
-            <input id="phone" type="text" placeholder="+1(234)555-6789">
+            <input class="form-control" id="phone" type="text" placeholder="+1(234)555-6789">
         </div>
     </section>
-    <input class="btn btn-primary" type="submit" value="Create reservation">
+    <input class="btn btn-primary form-control" type="submit" value="Create reservation">
 </form>
 
 {% endblock %}

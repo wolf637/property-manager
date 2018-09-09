@@ -9,15 +9,15 @@
                 {% csrf_token %}
                 <div>
                     <label for="room_name">Room Name</label>
-                    <input id="room_name" name="room_name" type="text" placeholder="E.g. 101" value="">
+                    <input class="form-control" id="room_name" name="room_name" type="text" placeholder="E.g. 101" value="">
                 </div>
                 <div>
                     <label for="room_desc">Room Description</label>
-                    <textarea id="room_desc" name="room_desc" placeholder="Room Description"></textarea>
+                    <textarea class="form-control" id="room_desc" name="room_desc" placeholder="Room Description"></textarea>
                 </div>
                 <div>
                     <label for="room_type">Room Type</label>
-                    <select name="room_type" id="room_type">
+                    <select class="form-control" name="room_type" id="room_type">
                         {% for type in room_types.all %}
                         <option value="{{ type.id }}">{{type}}</option>
                         {% endfor %}
@@ -25,7 +25,7 @@
                     <a class="btn btn-danger" href="{% url 'create_room_type'%}">Create New Room Type</a>
                 </div>
 
-                <input class="btn btn-primary" type="submit" value="Create new room">
+                <input class="btn btn-primary form-control" type="submit" value="Create new room">
             </form>
         </div>
       </div>
