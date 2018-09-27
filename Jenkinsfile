@@ -10,7 +10,7 @@ pipeline {
       steps {
         echo 'Testing..'
         sh '''cd ..
-virtualenv venv --python=python3.6
+virtualenv venv --python=python3
 source venv/bin/activate
 cd property-manager_master-C4ADQGFICO4CDDFCNKWH3FRY2RIPHU23SYFLOZWPJSZ7HAMOSMJQ
 python manage.py test
