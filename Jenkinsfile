@@ -12,6 +12,9 @@ pipeline {
         sh '''cd ..
 source venv/bin/activate
 pwd
+ls
+cd property-manager_master-C4ADQGFICO4CDDFCNKWH3FRY2RIPHU23SYFLOZWPJSZ7HAMOSMJQ
+python manage.py test
 '''
       }
     }
