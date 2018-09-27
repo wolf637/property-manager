@@ -11,7 +11,8 @@ pipeline {
         echo 'Testing..'
         sh '''cd ..
 source venv/bin/activate
-which python'''
+pwd
+'''
       }
     }
     stage('Deploy') {
