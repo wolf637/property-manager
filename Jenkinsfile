@@ -9,8 +9,9 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh '''pwd
-which python'''
+        sh '''cd ..
+virtualenv venv
+source venv/bin/activate'''
       }
     }
     stage('Deploy') {
