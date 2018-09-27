@@ -9,9 +9,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh '''cd ../venv/bin
-activate
-which python'''
+        sh 'python manage.py test'
       }
     }
     stage('Deploy') {
