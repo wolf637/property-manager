@@ -10,7 +10,7 @@ pipeline {
       steps {
         echo 'Testing..'
         sh '''cd ../venv/bin
-source activate
+activate
 which python'''
       }
     }
