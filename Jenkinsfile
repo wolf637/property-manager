@@ -10,9 +10,8 @@ pipeline {
       steps {
         echo 'Testing..'
         sh '''cd ..
-cd venv/bin
-ls
-'''
+source venv/bin/activate
+which python'''
       }
     }
     stage('Deploy') {
