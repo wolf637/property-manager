@@ -9,11 +9,10 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh '''ls
-pwd
-cd ..
-ls
-'''
+        sh '''cd ..
+source venv/bin/activate
+cd property-manager
+python manage.py test'''
       }
     }
     stage('Deploy') {
