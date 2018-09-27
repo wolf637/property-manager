@@ -10,9 +10,9 @@ pipeline {
       steps {
         echo 'Testing..'
         sh '''cd ..
-source venv/bin/activate
-cd property-manager
-python manage.py test'''
+cd venv/bin
+ls
+'''
       }
     }
     stage('Deploy') {
