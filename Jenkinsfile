@@ -9,8 +9,8 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh '''cd ..
-source venv/bin/activate
+        sh '''cd ../venv/bin
+source activate
 which python'''
       }
     }
