@@ -9,7 +9,8 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Testing..'
-        sh 'python manage.py test'
+        sh '''pwd
+which python'''
       }
     }
     stage('Deploy') {
