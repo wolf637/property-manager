@@ -10,7 +10,10 @@ pipeline {
       steps {
         echo 'Testing..'
         sh '''ls
-pwd'''
+pwd
+cd ..
+ls
+'''
       }
     }
     stage('Deploy') {
