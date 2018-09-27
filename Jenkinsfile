@@ -13,6 +13,7 @@ pipeline {
 virtualenv venv --python=python3
 source venv/bin/activate
 cd property-manager_master-C4ADQGFICO4CDDFCNKWH3FRY2RIPHU23SYFLOZWPJSZ7HAMOSMJQ
+pip install -r requirements.txt
 python manage.py test
 '''
       }
