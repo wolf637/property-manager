@@ -87,6 +87,9 @@ DATABASES = {
         'PASSWORD': 'Postgres&572197',
         'HOST': 'localhost',
         'PORT': '5432',
+        'TEST': {
+            'NAME': 'test_propertymanagerdb',
+        },
     }
 }
 
