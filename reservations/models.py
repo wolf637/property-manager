@@ -1,8 +1,6 @@
 from django.db import models
 from guests.models import Guest
 from rooms.models import Room
-from room_types.models import RoomType
-from properties.models import Property
 
 # Create your models here.
 
