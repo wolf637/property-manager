@@ -21,6 +21,7 @@
           <h1 class="display-3">Create new reservation</h1>
       </div>
 <form action="" method="POST">
+    {% csrf_token %}
     <section>
         <div class="row">
             <div class="date-picker">Arrival: <input class="form-control" type="text" id="datepicker-arrival"></div>

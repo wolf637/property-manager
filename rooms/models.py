@@ -18,3 +18,6 @@ class Room(models.Model):
 
     def image(self):
         return self.room_type.image
+
+    def __str__(self):
+        return self.name
