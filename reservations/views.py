@@ -4,6 +4,7 @@ from properties.models import Property
 from rooms.models import Room
 from .models import Reservation
 from guests.models import Guest
+import datetime
 
 # Create your views here.
 
@@ -17,9 +18,6 @@ def list(request):
 
 @login_required(login_url='login')
 def create(request):
-    print(request)
-    print(request.POST)
-
 
     if request.method == 'POST':
         if (request.POST['first_name']
@@ -29,25 +27,33 @@ def create(request):
             and request.POST['email']
             and request.POST['phone']):
 
+            arrival =  datetime.datetime.strptime(request.POST['arrival'], "%m/%d/%Y").date()
+            departure = datetime.datetime.strptime(request.POST['departure'], "%m/%d/%Y").date()
+
+
             guest, created = Guest.objects.get_or_create(first_name=request.POST['first_name'],
                                                          last_name=request.POST['last_name'],
                                                          email=request.POST['email'],
                                                          phone=request.POST['phone'])
 
-            print(guest.id)
+            rooms = Room.objects.get(id=request.POST['rooms'])
 
-            reservation = Reservation(guest=guest.id,
-                                      arrival=request.POST['arrival'],
-                                      departure=request.POST['departure'])
+            reservation = Reservation(guest=guest,
+                                      arrival=arrival,
+                                      departure=departure,
+                                      rooms=rooms)
 
             reservation.save()
             return redirect('/reservations/' + str(reservation.id))
         else:
             return render(request, 'reservations/create.html', {'error': 'All fields are required'})
 
-
-    return render(request, "reservations/create.html", context={})
+    property = Property.objects.get(user=request.user)
+    rooms = Room.objects.filter(property=property)
+    return render(request, "reservations/create.html", context={'rooms': rooms})
 
 @login_required(login_url='login')
 def details(request, reservation_id):
-    return render(request, "Here is the list of rooms")
+
+    reservation = Reservation.objects.get(id=reservation_id)
+    return render(request, "reservations/details.html", context={'reservation': reservation})

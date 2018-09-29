@@ -38,6 +38,15 @@
             <label for="phone">Phone:</label>
             <input class="form-control" id="phone" type="text" placeholder="+1(234)555-6789" name="phone">
         </div>
+        <div class="row">
+            <label  for="rooms">Rooms:</label>
+                    <select class="form-control" name="rooms" id="rooms">
+                        {% for room in rooms.all %}
+                        <option value="{{ room.id }}">{{room.name}}</option>
+                        {% endfor %}
+                    </select>
+        </div>
+
     <input class="btn btn-primary form-control" type="submit" value="Create reservation">
 </form>
               </div>

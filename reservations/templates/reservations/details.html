@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Reservation: {{ reservation.id }}</h1>
+            <div>
+                <span> <i class="fa fa-sign-in" aria-hidden="true" style="color:black"></i>Arrival: {{reservation.arrival}}</span>
+            </div>
+            <div>
+                <span> <i class="fa fa-sign-out" aria-hidden="true" style="color:black"></i>Departure: {{reservation.departure}}</span>
+            </div>
+            <div>
+                <a href="">Guest details: {{reservation.guest}}</a>
+            </div>
+        </div>
+      </div>
+
+{% endblock %}
