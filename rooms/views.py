@@ -23,7 +23,7 @@ def create(request):
         if request.POST['room_name'] and request.POST['room_type']:
             room = Room()
             room.name = request.POST['room_name']
-            room.property = get_object_or_404(Property, request.user.id)
+            room.property = get_object_or_404(Property, user=request.user.id)
             room.description = request.POST['room_desc']
             room_type_id = int(request.POST['room_type'])
             room.room_type = get_object_or_404(RoomType, pk=room_type_id)

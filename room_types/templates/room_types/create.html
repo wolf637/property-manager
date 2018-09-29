@@ -9,7 +9,7 @@
                 {% csrf_token %}
                 <div>
                     <label for="room_type_name">Room Type Name</label>
-                    <input class="form-control" id="room_type_name" type="text" placeholder="E.g. Single Room">
+                    <input class="form-control" id="room_type_name" name="room_type_name" type="text" placeholder="E.g. Single Room">
                 </div>
                 <div>
                     <label for="bed_type">Bed Type</label>
@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <label for="max_occupancy">Maximum Occupancy</label>
-                    <input class="form-control" id="max_occupancy" type="text" value="">
+                    <input class="form-control" id="max_occupancy" type="text" value="" name="max_occupancy">
                 </div>
                 <div>
                     <label for="room_img">Upload room photo</label>
