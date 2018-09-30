@@ -10,13 +10,13 @@ Web-application as a tool for owners of small hotels and/or Bed&Breakfast types 
 [![Dashboard](/images/pm_dashboard.png)]
 
 * List, create, update reservation
-[![Reservation Create](/img/pm_reservation_create.png)][![Reservations list](/img/pm_reservation_list.png)]
+[![Reservation Create](/images/pm_reservation_create.png)][![Reservations list](/images/pm_reservation_list.png)]
 
 * Create, update room types
-[![Room Types](/img/pm_room_type_create.png)]
+[![Room Types](/images/pm_room_type_create.png)]
 
 * List, create, update rooms based on room types
-[![Rooms List](/img/pm_rooms_list.png)]
+[![Rooms List](/images/pm_rooms_list.png)]
 
 * List, create, update guest info
 
