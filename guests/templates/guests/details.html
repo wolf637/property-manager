@@ -1,10 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+      <div class="jumbotron">
+        <h1 class="display-3">Guest details: {{ guest }}</h1>
+      </div>
+      <div class="card">
+  <div class="card-header">
+    {{ guest }}
+  </div>
+  <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email: <a href="mailto:{{guest.email}}">{{guest.email}}</a></li>
+        <li class="list-group-item">Phone: {{guest.phone}}</li>
+    </ul>
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
