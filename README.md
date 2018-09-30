@@ -7,10 +7,10 @@ Web-application as a tool for owners of small hotels and/or Bed&Breakfast types 
 * Signup/Login
 
 * Dashboard with today's status
-![Dashboard](<img src="/images/pm_dashboard.png" width="450")
+![Dashboard](<img src="/images/pm_dashboard.png" width="450">)
 
 * List, create, update reservation
-![Reservation Create](/images/pm_reservation_create.png | width=450)![Reservations list](/images/pm_reservation_list.png | width=450)
+![Reservation Create](<img src="/images/pm_reservation_create.png" width="450">)![Reservations list](/images/pm_reservation_list.png | width=450)
 
 * Create, update room types
 ![Room Types](/images/pm_room_type_create.png | width=450)
