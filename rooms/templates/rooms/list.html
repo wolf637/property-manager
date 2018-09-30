@@ -3,24 +3,23 @@
 {% block content %}
 
       <div class="jumbotron">
-        <div class="container">
           <h1 class="display-3">List of rooms</h1>
-            {% for room in rooms.all %}
-
-
-            <div>
-                <div>
-                    <a href="{% url 'room_details' room.id %}">{{ room.name }}</a>
-                </div>
-                <a href="{% url 'room_details' room.id %}"><img src="{{ room.image.url }}" alt="{{ room.name }}"></a>
-            </div>
-
-            {% endfor %}
-            <div>
-                <p><a class="btn btn-primary btn-lg" href="{% url 'create_room' %}" role="button">Add room</a></p>
-            </div>
-
-        </div>
+          <a class="btn btn-primary btn-lg pull-right" href="{% url 'create_room' %}" role="button">Add room</a>
       </div>
+        <div class="container">
+            <div class="row">
+                {% for room in rooms.all %}
 
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{ room.image.url }}" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ room.name }}</h5>
+                    <p class="card-text">{{ room.description }}</p>
+                      <p class="card-text">Max occupancy: {{ room.occupancy }}</p>
+                    <a href="{% url 'room_details' room.id %}" class="btn btn-primary">Room Details</a>
+                  </div>
+            </div>
+            {% endfor %}
+            </div>
+            </div>
 {% endblock %}

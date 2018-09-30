@@ -3,12 +3,18 @@
 {% block content %}
 
       <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">{{ room.name }}</h1>
-            <p>{{ room.description }}</p>
-            <div>Occupancy: {{ room.occupancy }}</div>
-            <img src="{{room.image.url}}" alt="{{ room.name }}">
-        </div>
+        {{ room.name }}
       </div>
+        <div class="container">
+            <div class="row">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{room.image.url}}" alt="{{ room.name }}">
+                    <div class="card-body">
+                    <p class="card-text">{{ room.description }}</p>
+                    <p>Occupancy: {{ room.occupancy }}</p>
+                  </div>
+                </div>
+            </div>
+        </div>
 
 {% endblock %}
