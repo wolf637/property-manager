@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+      <div class="jumbotron">
+          <h1>Guests</h1>
+      </div>
+          <div class="container">
+              <div class="row">
+                  <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Last Name, First Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for guest in guests %}
+                            <tr>
+                                <td><a href="#">{{guest}}</a></td>
+                                <td>{{guest.email}}</td>
+                                <td>{{guest.phone}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                  </table>
+              </div>
+          </div>
+
+
+{% endblock %}

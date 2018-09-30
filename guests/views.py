@@ -7,5 +7,12 @@ from .models import Guest
 def list(request):
 
     property = Property.objects.get(user=request.user)
-    guests = Guest.objects.get(property=property)
-    return render(request, "rooms/list.html", context={'guests': guests})
+    guests = Guest.objects.filter(property=property)
+    return render(request, "guests/list.html", context={'guests': guests})
+
+
+@login_required(login_url='login')
+def details(request, guest_id):
+
+    guest = Guest.objects.get(id=guest_id)
+    return render(request, "guests/details.html", context={'guest': guest})

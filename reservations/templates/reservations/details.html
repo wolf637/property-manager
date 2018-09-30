@@ -3,18 +3,21 @@
 {% block content %}
 
       <div class="jumbotron">
-        <div class="container">
-          <h1 class="display-3">Reservation: {{ reservation.id }}</h1>
-            <div>
-                <span> <i class="fa fa-sign-in" aria-hidden="true" style="color:black"></i>Arrival: {{reservation.arrival}}</span>
-            </div>
-            <div>
-                <span> <i class="fa fa-sign-out" aria-hidden="true" style="color:black"></i>Departure: {{reservation.departure}}</span>
-            </div>
-            <div>
-                <a href="">Guest details: {{reservation.guest}}</a>
+        <h1 class="display-3">Reservation: {{ reservation.id }}</h1>
+      </div>
+            <div class="container">
+            <div class="row">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-header">
+                      <a href="#">{{reservation.guest}}</a>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-sign-in" aria-hidden="true"></i><span>  Arrival: {{reservation.arrival}}</span></li>
+                    <li class="list-group-item"><span> <i class="fa fa-sign-out" aria-hidden="true"></i>  Departure: {{reservation.departure}}</span></li>
+                  </ul>
+                </div>
             </div>
         </div>
-      </div>
-
 {% endblock %}
+
+
