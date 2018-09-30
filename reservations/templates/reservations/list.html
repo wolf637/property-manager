@@ -18,8 +18,8 @@
                 <tbody>
                     {% for reservation in reservations %}
                         <tr>
-                            <td><a href="#">{{reservation.id}}</a></td>
-                            <td><a href="#">{{reservation.guest}}</a></td>
+                            <td><a href="{% url 'reservation_details' reservation.id %}">{{reservation.id}}</a></td>
+                            <td><a href="{% url 'guest_details' reservation.guest.id %}">{{reservation.guest}}</a></td>
                             <td>{{reservation.arrival}}</td>
                             <td>{{reservation.departure}}</td>
                         </tr>
