@@ -6,29 +6,86 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">Hi, {{ property.name }}</h1>
-
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            <h4>Here is who checks-in, checks-out, or stays-over today</h4>
         </div>
       </div>
-
       <div class="container">
         <!-- Example row of columns -->
         <div class="row">
           <div class="col-md-4">
-            <h2>Arrivals</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2>Arrivals  <i class="fa fa-sign-in" aria-hidden="true"></i></h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Res id</th>
+                  <th scope="col">Guest Name</th>
+                  <th scope="col">Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if not arrivals %}
+                <tr><td colspan="3" class="text-center">No arrivals today</td></tr>
+                {% else %}
+                {% for arrival in arrivals %}
+                <tr>
+                  <th scope="row"><a href="{% url 'reservation_details' departure.id %}">{{ arrival.id }}</a></th>
+                  <td><a href="{% url 'guest_details' departure.guest.id %}">{{ arrival.guest }}</a></td>
+                  <td><a href="{% url 'room_details' departure.rooms.id %}">{{ arrival.rooms }}</a></td>
+                </tr>
+              {% endfor %}
+              {% endif %}
+              </tbody>
+            </table>
           </div>
           <div class="col-md-4">
-            <h2>Departures</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2>Departures  <i class="fa fa-sign-out" aria-hidden="true"></i></h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Res id</th>
+                  <th scope="col">Guest Name</th>
+                  <th scope="col">Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if not departures %}
+                <tr><td colspan="3" class="text-center">No departures today</td></tr>
+                {% else %}
+                {% for departure in departures%}
+                <tr>
+                  <th scope="row"><a href="{% url 'reservation_details' departure.id %}">{{ departure.id }}</a></th>
+                  <td><a href="{% url 'guest_details' departure.guest.id %}">{{ departure.guest }}</a></td>
+                  <td><a href="{% url 'room_details' departure.rooms.id %}">{{ departure.rooms }}</a></td>
+                </tr>
+              {% endfor %}
+              {% endif %}
+              </tbody>
+            </table>
           </div>
           <div class="col-md-4">
-            <h2>Stay-overs</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <h2>Stay-overs <i class="fa fa-bed" aria-hidden="true"></i></h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Res id</th>
+                  <th scope="col">Guest Name</th>
+                  <th scope="col">Room</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% if not stayovers %}
+                <tr><td colspan="3" class="text-center">No stay-overs today</td></tr>
+                {% else %}
+                {% for stayover in stayovers %}
+                <tr>
+                  <th scope="row"><a href="{% url 'reservation_details' stayover.id %}">{{ stayover.id }}</a></th>
+                  <td><a href="{% url 'guest_details' stayover.guest.id %}">{{ stayover.guest }}</a></td>
+                  <td><a href="{% url 'room_details' stayover.rooms.id %}">{{ stayover.rooms }}</a></td>
+                </tr>
+              {% endfor %}
+              {% endif %}
+              </tbody>
+            </table>
           </div>
         </div>
 

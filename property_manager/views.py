@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from properties.models import Property
 from django.contrib.auth.models import User
 from django.contrib import auth
+import datetime
+from reservations.models import Reservation
 
 def home(request):
     return render(request, "home.html")
@@ -11,7 +13,15 @@ def home(request):
 def dashboard(request):
 
     property = Property.objects.get(user=request.user)
-    return render(request, "dashboard.html", context={'property': property})
+    today = datetime.datetime.today()
+    arrivals = Reservation.objects.filter(arrival=today, rooms__property=property)
+    departures = Reservation.objects.filter(departure=today, rooms__property=property)
+    stayovers = Reservation.objects.filter(arrival__lt=today, departure__gt=today, rooms__property=property)
+
+    return render(request, "dashboard.html", context={'property': property,
+                                                      'arrivals': arrivals,
+                                                      'departures': departures,
+                                                      'stayovers': stayovers})
 
 def signup(request):
 
@@ -54,3 +64,6 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
+
+
+
