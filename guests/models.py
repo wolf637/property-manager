@@ -1,4 +1,5 @@
 from django.db import models
+from properties.models import Property
 
 # Create your models here.
 
@@ -8,6 +9,7 @@ class Guest(models.Model):
     last_name = models.TextField(max_length=80)
     email = models.EmailField()
     phone = models.TextField()
+    property = models.ForeignKey(Property, on_delete=models.DO_NOTHING, blank=True)
 
 
     def __str__(self):

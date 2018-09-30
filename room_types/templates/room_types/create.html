@@ -5,7 +5,7 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">Create New Room Type</h1>
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div>
                     <label for="room_type_name">Room Type Name</label>
@@ -27,8 +27,8 @@
 
                 </div>
                 <div>
-                    <label for="max_occupancy">Maximum Occupancy</label>
-                    <input class="form-control" id="max_occupancy" type="text" value="" name="max_occupancy">
+                    <label for="rate">Rate:</label>
+                    <input class="form-control" id="rate" type="text" value="" name="rate">
                 </div>
                 <div>
                     <label for="room_img">Upload room photo</label>
