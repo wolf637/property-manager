@@ -16,40 +16,42 @@
 
 {% block content %}
       <div class="jumbotron">
-          <div class="container">
           <h1 class="display-3">Create new reservation</h1>
+      </div>
+      <div class="container">
+          <div class="row col-12">
+              <form action="" method="POST">
+                {% csrf_token %}
+                    <div class="row">
+                        <div class="date-picker">Arrival: <input class="form-control" type="text" id="datepicker-arrival" name="arrival"></div>
+                        <div class="date-picker">Departure: <input class="form-control" type="text" id="datepicker-departure" name="departure"></div>
+                    </div>
+                    <h4 >Guest Information</h4>
+                    <div class="row">
+                        <label for="first_name">First Name</label>
+                        <input class="form-control" id="first_name" type="text" placeholder="Ex. John" name="first_name">
+                        <label for="last_name">Last Name</label>
+                        <input class="form-control" id="last_name" type="text" placeholder="Ex. Doe" name="last_name">
+                    </div>
+                    <div class="row">
+                        <label for="email">Email:</label>
+                        <input class="form-control" id="email" type="email" placeholder="john.doe@mail.com" name="email">
+                        <label for="phone">Phone:</label>
+                        <input class="form-control" id="phone" type="text" placeholder="+1(234)555-6789" name="phone">
+                    </div>
+                    <div class="row">
+                        <label  for="rooms">Rooms:</label>
+                                <select class="form-control" name="rooms" id="rooms">
+                                    {% for room in rooms.all %}
+                                    <option value="{{ room.id }}">{{room.name}}</option>
+                                    {% endfor %}
+                                </select>
+                    </div>
 
-<form action="" method="POST">
-    {% csrf_token %}
-        <div class="row">
-            <div class="date-picker">Arrival: <input class="form-control" type="text" id="datepicker-arrival" name="arrival"></div>
-            <div class="date-picker">Departure: <input class="form-control" type="text" id="datepicker-departure" name="departure"></div>
-        </div>
-        <h4 >Guest Information</h4>
-        <div class="row">
-            <label for="first_name">First Name</label>
-            <input class="form-control" id="first_name" type="text" placeholder="Ex. John" name="first_name">
-            <label for="last_name">Last Name</label>
-            <input class="form-control" id="last_name" type="text" placeholder="Ex. Doe" name="last_name">
-        </div>
-        <div class="row">
-            <label for="email">Email:</label>
-            <input class="form-control" id="email" type="email" placeholder="john.doe@mail.com" name="email">
-            <label for="phone">Phone:</label>
-            <input class="form-control" id="phone" type="text" placeholder="+1(234)555-6789" name="phone">
-        </div>
-        <div class="row">
-            <label  for="rooms">Rooms:</label>
-                    <select class="form-control" name="rooms" id="rooms">
-                        {% for room in rooms.all %}
-                        <option value="{{ room.id }}">{{room.name}}</option>
-                        {% endfor %}
-                    </select>
-        </div>
-
-    <input class="btn btn-primary form-control" type="submit" value="Create reservation">
+                    <input class="btn btn-primary form-control" type="submit" value="Create reservation">
 </form>
-              </div>
+
           </div>
+      </div>
 
 {% endblock %}
