@@ -1,9 +1,9 @@
-from django.test import TestCase
+from tests.base.base_unit import BaseUnitTest
 from room_types.models import Bed, RoomType
 from .settings import *
 
 
-class RoomTypesTest(TestCase):
+class RoomTypesModelTest(BaseUnitTest):
 
     @classmethod
     def setUpTestData(cls):
@@ -65,7 +65,7 @@ class RoomTypesTest(TestCase):
         self.assertEquals(self.room_type.occupancy(), occupancy)
 
 
-class BedTest(TestCase):
+class BedModelTest(BaseUnitTest):
 
     @classmethod
     def setUpTestData(cls):
