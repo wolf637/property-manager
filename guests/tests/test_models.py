@@ -13,7 +13,6 @@ class GuestModelTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-
         cls.guest = Guest.objects.create(first_name=TEST_FIRST_NAME,
                              last_name=TEST_LAST_NAME,
                              email=TEST_EMAIL,
