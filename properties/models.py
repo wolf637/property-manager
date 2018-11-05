@@ -7,6 +7,5 @@ class Property(models.Model):
     name = models.TextField(max_length=80, blank=False)
     picture = models.ImageField(upload_to='media/')
 
-
     def __str__(self):
         return self.name

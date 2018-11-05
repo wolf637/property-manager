@@ -26,7 +26,6 @@ class GuestModelTest(TestCase):
         max_length = self.guest._meta.get_field('first_name').max_length
         self.assertEquals(max_length, FIRST_NAME_MAX_LENGTH)
 
-
     def test_last_name(self):
         self.assertEquals(self.guest.last_name, TEST_LAST_NAME)
 
@@ -39,7 +38,6 @@ class GuestModelTest(TestCase):
 
     def test_phone(self):
         self.assertEquals(self.guest.phone, TEST_PHONE)
-
 
     def test_string_representation(self):
         expected_str = f'{TEST_LAST_NAME}, {TEST_FIRST_NAME}'
