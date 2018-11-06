@@ -7,6 +7,8 @@ import datetime
 from reservations.models import Reservation
 
 def home(request):
+    if request.user.is_authenticated:
+        return redirect("dashboard")
     return render(request, "home.html")
 
 @login_required(login_url='login')
