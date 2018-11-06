@@ -14,7 +14,7 @@ class PropertyViewsTest(BaseUnitTest):
     def test_unathenticated_user_gets_redirected_to_login(self):
 
         url = reverse('properties:property_details', args=(self.property.pk,))
-        redirect_url = f'/login/?next={url}'
+        redirect_url = '/login/?next={url}'.format(url=url)
         response = self.client.get(url)
         self.assertRedirects(response, redirect_url)
 

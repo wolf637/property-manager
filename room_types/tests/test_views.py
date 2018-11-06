@@ -31,7 +31,7 @@ class RoomTypeViewTest(BaseUnitTest):
     def test_unathenticated_user_creating_roomtype_gets_redirected_to_login(self):
 
         url = reverse('room_types:create_room_type')
-        redirect_url = f'/login/?next={url}'
+        redirect_url = '/login/?next={url}'.format(url=url)
         response = self.client.get(url)
         self.assertRedirects(response, redirect_url)
 
