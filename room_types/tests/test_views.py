@@ -12,7 +12,7 @@ class RoomTypeViewTest(BaseUnitTest):
         url = reverse('room_types:create_room_type')
         payload = self._create_roomtype()
         response = self.client.post(path=url, data=payload)
-        redirect_url = f'/room_types/1'
+        redirect_url = '/room_types/1'
         self.assertRedirects(response, redirect_url)
         self.logout()
 
