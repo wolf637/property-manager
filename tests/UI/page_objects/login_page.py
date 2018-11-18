@@ -23,3 +23,14 @@ class LoginPage(BasePage):
 
         return
 
+    def logout(self):
+
+        self.click('css', UI_map.LOGIN['logout_button'])
+
+
+    def is_logged_out(self):
+
+        self.wait_for_element_visibility('css', UI_map.HOME['signup_button'])
+        self.wait_for_element_visibility('css', UI_map.HOME['login_button'])
+
+        return True

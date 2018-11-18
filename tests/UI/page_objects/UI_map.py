@@ -1,7 +1,5 @@
-# BASE_URL = "http://127.0.0.1:8000/"
-BASE_URL = "http://138.68.253.156/"
-
-
+BASE_URL = "http://127.0.0.1:8000/"
+# BASE_URL = "http://138.68.253.156/"
 
 HOME = {
     'logout_button': '#logout-btn',
@@ -14,6 +12,8 @@ HOME = {
 LOGIN = {
     'email_textfield': '#email',
     'password_textfield': '#password',
-    'login_button': 'input[type="submit"]'
+    'login_button': 'input[type="submit"]',
+    'logout_button': "#logout-btn"
 }
+
 

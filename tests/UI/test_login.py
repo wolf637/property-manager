@@ -6,6 +6,10 @@ import time
 
 class TestLogin(TestClassBase):
 
+    @classmethod
+    def setup_class(cls):
+        super().setup_class()
+        cls.homepage = HomePage(cls.driver)
 
     def test_signup(self):
         # If user logged in => log her out
@@ -22,15 +26,16 @@ class TestLogin(TestClassBase):
         # Log in with credentials of existing user
 
         # Make sure user logged in
-        print("Home url: {}".format(self.driver.current_url))
-        homepage = HomePage(self.driver)
-
-        loginpage = homepage.login()
+        loginpage = self.homepage.login()
         loginpage.login()
+        loginpage.logout()
 
     def test_logout(self):
+        loginpage = self.homepage.login()
+        loginpage.login()
+        loginpage.logout()
 
-        pass
+        assert loginpage.is_logged_out() == True
 
     def test_invalid_credentials(self):
 
