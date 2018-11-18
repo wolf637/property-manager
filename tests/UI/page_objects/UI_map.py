@@ -1,5 +1,5 @@
-BASE_URL = "http://127.0.0.1:8000/"
-# BASE_URL = "http://138.68.253.156/"
+# BASE_URL = "http://127.0.0.1:8000/"
+BASE_URL = "http://138.68.253.156/"
 
 HOME = {
     'logout_button': '#logout-btn',
